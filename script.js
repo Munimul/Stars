@@ -1,8 +1,9 @@
 "use strict";
 
-import data from "./sample.json" assert { type: "json" };
+import data from "./output.json" assert { type: "json" };
 
 // Single constellation paragraph, more details, and picture button
+const consImg = document.getElementById("image");
 const single = document.getElementById("single");
 const paragraph0 = document.getElementById("zero");
 const paragraph1 = document.getElementById("one");
@@ -74,6 +75,7 @@ const button = document.querySelectorAll(".constEl");
 // add event for all buttons
 for (let i = 0; i < constellations.length; i++) {
   button[i].addEventListener("click", function () {
+    consImg.src = data[i].imgUrl;
     name.textContent = data[i].name;
     engName.textContent = data[i].englishName;
     brightestStar.textContent = "Brightest Star: " + data[i].brightestStar;
@@ -83,7 +85,7 @@ for (let i = 0; i < constellations.length; i++) {
     details.href = data[i].url;
 
     // get information of first star from api call
-    apiCall(data[i].name);
+    //apiCall(data[i].name);
 
     single.classList.remove("hidden");
   });
