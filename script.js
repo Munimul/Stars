@@ -1,8 +1,9 @@
 "use strict";
 
 import data from "./output.json" assert { type: "json" };
+const myKey = config.MY_KEY;
 
-// Single constellation paragraph, more details, and picture button
+// Single constellation paragraph, more details, picture, button elements
 const consImg = document.getElementById("image");
 const single = document.getElementById("single");
 const paragraph0 = document.getElementById("zero");
@@ -12,7 +13,7 @@ const details = document.getElementById("more");
 const name = document.getElementById("name");
 const engName = document.getElementById("engName");
 const brightestStar = document.getElementById("brightestStar");
-const allStars = document.getElementById("allStars");
+const apiStar = document.getElementById("apiStar");
 
 // Hide details tag first
 single.classList.add("hidden");
@@ -20,7 +21,7 @@ single.classList.add("hidden");
 // Api Ninja
 let options = {
   method: "GET",
-  headers: { "x-api-key": "HKIbrbUbfb/f8ocdY9jEig==XGtv6B3zpeKj1u9F" },
+  headers: { "x-api-key": myKey },
 };
 
 let url;
@@ -34,10 +35,10 @@ function apiCall(constel) {
     .then((data) => {
       if (data.length === 0) {
         console.log("No response");
-        allStars.classList.add("hidden");
+        apiStar.classList.add("hidden");
       } else {
-        allStars.classList.remove("hidden");
-        allStars.textContent =
+        apiStar.classList.remove("hidden");
+        apiStar.textContent =
           "Brightest star's distance from earth is : " +
           data[0].distance_light_year +
           " Light years." +
@@ -85,7 +86,7 @@ for (let i = 0; i < constellations.length; i++) {
     details.href = data[i].url;
 
     // get information of first star from api call
-    //apiCall(data[i].name);
+    apiCall(data[i].name);
 
     single.classList.remove("hidden");
   });
