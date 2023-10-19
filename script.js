@@ -1,6 +1,6 @@
 "use strict";
 
-import data from "./output.json" assert { type: "json" };
+import { data } from "./output.js";
 const myKey = config.MY_KEY;
 
 // Single constellation paragraph, more details, picture, button elements
@@ -73,21 +73,27 @@ for (let i = 0; i < constellations.length; i++) {
 // Select all buttons
 const button = document.querySelectorAll(".constEl");
 
+function showConstellation(i) {
+  consImg.src = data[i].imgUrl;
+  name.textContent = data[i].name;
+  engName.textContent = data[i].englishName;
+  brightestStar.textContent = "Brightest Star: " + data[i].brightestStar;
+  paragraph0.textContent = data[i].paragraph0;
+  paragraph1.textContent = data[i].paragraph1;
+  paragraph2.textContent = data[i].paragraph2;
+  details.href = data[i].url;
+  // get information of first star from api call
+  apiCall(data[i].name);
+  single.classList.remove("hidden");
+}
+
+// show Capricornus for first page load
+
+showConstellation(15);
+
 // add event for all buttons
 for (let i = 0; i < constellations.length; i++) {
   button[i].addEventListener("click", function () {
-    consImg.src = data[i].imgUrl;
-    name.textContent = data[i].name;
-    engName.textContent = data[i].englishName;
-    brightestStar.textContent = "Brightest Star: " + data[i].brightestStar;
-    paragraph0.textContent = data[i].paragraph0;
-    paragraph1.textContent = data[i].paragraph1;
-    paragraph2.textContent = data[i].paragraph2;
-    details.href = data[i].url;
-
-    // get information of first star from api call
-    apiCall(data[i].name);
-
-    single.classList.remove("hidden");
+    showConstellation(i);
   });
 }
