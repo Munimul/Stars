@@ -16,14 +16,14 @@ const apiStar = document.getElementById("apiStar");
 
 // Hide details tag first
 single.classList.add("hidden");
-
+/*
 // Api Ninja
 let options = {
   method: "GET",
   headers: { "x-api-key": myKey },
 };
 
-/*
+
 let url;
 // Api call function
 
