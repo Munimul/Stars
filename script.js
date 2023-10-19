@@ -1,6 +1,8 @@
 "use strict";
 
 import { data } from "./output.js";
+
+import { config } from "./config.js";
 const myKey = config.MY_KEY;
 
 // Single constellation paragraph, more details, picture, button elements
@@ -45,7 +47,6 @@ function apiCall(constel) {
           " It's spectral class is: " +
           data[0].spectral_class;
       }
-      console.log(data);
     })
     .catch((err) => {
       console.log(`error ${err}`);
