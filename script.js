@@ -2,9 +2,6 @@
 
 import { data } from "./output.js";
 
-import { config } from "./config.js";
-const myKey = config.MY_KEY;
-
 // Single constellation paragraph, more details, picture, button elements
 const consImg = document.getElementById("image");
 const single = document.getElementById("single");
@@ -26,8 +23,8 @@ let options = {
   headers: { "x-api-key": myKey },
 };
 
+/*
 let url;
-
 // Api call function
 
 function apiCall(constel) {
@@ -52,6 +49,7 @@ function apiCall(constel) {
       console.log(`error ${err}`);
     });
 }
+*/
 
 // create an array from data with constellations name
 let constellations = [];
@@ -84,7 +82,7 @@ function showConstellation(i) {
   paragraph2.textContent = data[i].paragraph2;
   details.href = data[i].url;
   // get information of first star from api call
-  apiCall(data[i].name);
+  //apiCall(data[i].name);
   single.classList.remove("hidden");
 }
 
