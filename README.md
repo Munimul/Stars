@@ -1,3 +1,7 @@
+# Stars
+
+A website for learning about the constellations of stars in our sky. All the information on this website are generated from Wikipedia
+
 ## Constellations list and Name
 
 The first problem is to collect all the constellations names. Luckily a .csv file was found from kaggle's dataset. This dataset also includes the English name beside the Latin name of constellations as well as the brightest star of that constellation.
@@ -12,11 +16,13 @@ Wikipedia has lots of information regarding constellations, their properties, na
 
 - Only the first two paragraphs from each constellation were saved with the constellation name, the brightest star and other information and this attributes were transformed into a dictonary which later appended to a list and thus creating the sample.json file.
 
+- Image url's were also saved for each constellations
+
 ## Showing picture from an API
 
 Showing a constellation's pic from an api call was tried but failed due to not appropriate tagging of api images or muliple meaning and various usage of constellation names in multiple situation/objects.
 
-- We will once again resort to scrapping images from wikipedia as it has more flexibility for using its open-source images
+-We have scrapped the img url from wikipedia for showing each constellation's image
 
 ## More details about the brightest star for each constellation
 
